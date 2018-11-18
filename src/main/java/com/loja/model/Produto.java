@@ -3,9 +3,9 @@ package com.loja.model;
 import javax.persistence.Entity;
 
 @Entity
-public class Estoque extends Base{
+public class Produto extends Base{
 
-	public Estoque(long id, String nome) {
+	public Produto(long id, String nome) {
 		super(id, nome);
 	}
 
