@@ -1,24 +1,24 @@
 package com.loja.model;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class OrdemVendaProduto {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long Id;	
-	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="ordem_venda_id")
+	
+	@ManyToOne    
 	private OrdemVenda OrdemVenda;
-	@ManyToOne
-    @JoinColumn(name="produto_id")
+	
+	@ManyToOne    
 	private Produto Produto;
+	
 	private int Quantidade;
 	
 	public long getId() {
