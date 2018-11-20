@@ -4,14 +4,14 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title>Inicio</title>
+	<title>Pedido de Compra</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<strong>Inicio</strong>
+			<strong>Pedido de Compra</strong>
 		</div>
 		<div class="panel-footer">
 			<a class="btn btn-sm btn-success" th:href="@{/}" >Inicio</a>
@@ -22,7 +22,33 @@
 			<a class="btn btn-sm btn-success" th:href="@{/pedidoCompra}" >Pedido de Compra</a>
 			<a class="btn btn-sm btn-success" th:href="@{/estoque}" >Estoque</a>
 		</div>
-		<img src="index.jpg" alt="some text" width=60 height=40>
-	</div>	
+			<table>
+				<tr>
+			   		<td>CPF Funcionario:</td>
+			   	</tr>
+			   	<tr>
+			   		<td><input type="text" name="cpf" size="11"> <br /></td>
+				</tr>
+				<tr>
+		   			<td>CPF Cliente:</td>
+		   		</tr>
+		   		<tr>
+		   			<td><input type="int" name="cpfCnpj" size="11"><br /></td>
+				</tr>
+				<tr>
+			   		<td>Item:</td>
+			   	</tr>
+			   	<tr>
+			   		<td><input type="int" name="Item" size="9"><br /></td>
+				</tr>
+				<tr>
+			   		<td>Quantidade de itens:</td>
+			   	</tr>
+			   	<tr>
+			   		<td><input type="int" name="qntItem" size="9"><br /></td>
+				</tr>
+		 	</table>
+	</div>
+	<input type="submit" value="Salvar"/>	
 </body>
 </html>

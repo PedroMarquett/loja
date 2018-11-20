@@ -13,6 +13,49 @@
 		<div class="panel-heading">
 			<strong>Cliente</strong>
 		</div>
+		<div class="panel-footer">
+			<a class="btn btn-sm btn-success" th:href="@{/}" >Inicio</a>
+			<a class="btn btn-sm btn-success" th:href="@{/funcionario}" >Funcionario</a>
+			<a class="btn btn-sm btn-success" th:href="@{/cliente}" >Cliente</a>
+			<a class="btn btn-sm btn-success" th:href="@{/fornecedor}" >Fornecedor</a>
+			<a class="btn btn-sm btn-success" th:href="@{/ordemVenda}" >Ordem de Venda</a>
+			<a class="btn btn-sm btn-success" th:href="@{/pedidoCompra}" >Pedido de Compra</a>
+			<a class="btn btn-sm btn-success" th:href="@{/estoque}" >Estoque</a>
+		</div>
+		<table>
+			<tr>
+		   		<td>Nome Cliente:</td>
+		   	</tr>
+		   	<tr>
+		   		<td><input type="text" name="nome" size="100"> <br /></td>
+			</tr>
+		 	<tr>
+		   		<td>CPF cliente:</td>
+		   	</tr>
+		   	<tr>
+		   		<td><input type="int" name="cpfCnpj" size="11"><br /></td>
+			</tr>
+		 	<tr>
+		   		<td>Telefone cliente:</td>
+		   	</tr>
+		   	<tr>
+		   		<td><input type="int" name="Telefone" size="11"><br /></td>
+			</tr>
+		 	<tr>
+		   		<td>Endereço:</td>
+		   	</tr>
+		   	<tr>
+		   		<td><input type="text" name="endereco" size="100"><br /></td>
+			</tr>			 
+		 	<tr>
+		   		<td>Sexo cliente:</td>
+		   	</tr>
+		   	<tr>	
+		   		<td>Masculino <input type="radio" name="sexo" value"M" >
+		   			Feminino  <input type="radio" name="sexo" value"F" ><br /></td>
+			 </tr>	
+		</table>
 	</div>	
+	<input type="submit" value="Salvar"/>
 </body>
 </html>

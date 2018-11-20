@@ -4,14 +4,14 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title>Inicio</title>
+	<title>Fornecedor</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<strong>Inicio</strong>
+			<strong>Fornecedor</strong>
 		</div>
 		<div class="panel-footer">
 			<a class="btn btn-sm btn-success" th:href="@{/}" >Inicio</a>
@@ -22,7 +22,33 @@
 			<a class="btn btn-sm btn-success" th:href="@{/pedidoCompra}" >Pedido de Compra</a>
 			<a class="btn btn-sm btn-success" th:href="@{/estoque}" >Estoque</a>
 		</div>
-		<img src="index.jpg" alt="some text" width=60 height=40>
+		<table>
+			<tr>
+		   		<td>Nome:</td>
+		   	</tr>
+		   	<tr>
+		   		<td><input type="text" name="nome" size="100"> <br /></td>
+			</tr>
+		 	<tr>
+		   		<td>CNPJ:</td>
+		   	</tr>
+		   	<tr>
+		   		<td><input type="int" name="cnpj" size="11"><br /></td>
+			</tr>
+		 	<tr>
+		   		<td>Telefone:</td>
+		   	</tr>
+		   	<tr>
+		   		<td><input type="int" name="Telefone" size="11"><br /></td>
+			</tr>
+		 	<tr>
+		   		<td>Endereço:</td>
+		   	</tr>
+		   	<tr>
+		   		<td><input type="text" name="endereco" size="100"><br /></td>
+			</tr>			 
+		</table>
 	</div>	
+	<input type="submit" value="Salvar"/>	
 </body>
 </html>
