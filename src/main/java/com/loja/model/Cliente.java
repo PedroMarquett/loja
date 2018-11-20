@@ -4,11 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
-public class Cliente extends EntidadeBase {
-	public Cliente(long id, String nome, String cpfCnpj, String telefone, String endereco) {
-		super(id, nome, cpfCnpj, telefone, endereco);
-	}
-	
+public class Cliente extends EntidadeBase {	
+		
 	@Column(length=1)
 	private String Sexo;
 

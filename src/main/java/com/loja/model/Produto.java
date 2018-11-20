@@ -5,10 +5,6 @@ import javax.persistence.Entity;
 @Entity
 public class Produto extends Base{
 
-	public Produto(long id, String nome) {
-		super(id, nome);
-	}
-
 	private int Quantidade;
 	
 	public int getQuantidade() {

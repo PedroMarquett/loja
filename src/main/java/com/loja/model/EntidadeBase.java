@@ -6,13 +6,6 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class EntidadeBase extends Base {
 	
-	public EntidadeBase(long id, String nome, String cpfCnpj, String telefone, String endereco) {
-		super(id, nome);
-		CpfCnpj = cpfCnpj;
-		Telefone = telefone;
-		Endereco = endereco;
-	}
-
 	@Column(length=18)
 	private String CpfCnpj;
 	@Column(length=12)

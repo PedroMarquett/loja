@@ -2,6 +2,7 @@ package com.loja.model;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,8 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class OrdemVenda {
-
+public class PedidoCompra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long Id;
@@ -21,30 +21,10 @@ public class OrdemVenda {
 	@JoinColumn(nullable = false, updatable = false)
 	private Funcionario Funcionario;
 	
-
 	@ManyToOne(optional = false)
 	@JoinColumn(nullable = false, updatable = false)
-	private Fornecedor Fornecedor;
-
-	public Set<OrdemVendaProduto> getOrdemVendaProdutos() {
-		return OrdemVendaProdutos;
-	}
-
-	public void setOrdemVendaProdutos(Set<OrdemVendaProduto> ordemVendaProdutos) {
-		OrdemVendaProdutos = ordemVendaProdutos;
-	}
-
-	@OneToMany(mappedBy = "OrdemVenda")
-	private Set<OrdemVendaProduto> OrdemVendaProdutos = new HashSet<>(0);
-
-	public Set<OrdemVendaProduto> getOrdemVendaProduto() {
-		return OrdemVendaProdutos;
-	}
-
-	public void setOrdemVendaProduto(Set<OrdemVendaProduto> ordemVendaProduto) {
-		OrdemVendaProdutos = ordemVendaProduto;
-	}
-
+	private Cliente Cliente;
+	
 	public long getId() {
 		return Id;
 	}
@@ -61,11 +41,22 @@ public class OrdemVenda {
 		Funcionario = funcionario;
 	}
 
-	public Fornecedor getFornecedor() {
-		return Fornecedor;
+	public Cliente getCliente() {
+		return Cliente;
 	}
 
-	public void setFornecedor(Fornecedor fornecedor) {
-		Fornecedor = fornecedor;
+	public void setCliente(Cliente cliente) {
+		Cliente = cliente;
 	}
+
+	public Set<PedidoCompraProduto> getPedidoCompraProdutos() {
+		return PedidoCompraProdutos;
+	}
+
+	public void setPedidoCompraProdutos(Set<PedidoCompraProduto> pedidoCompraProdutos) {
+		PedidoCompraProdutos = pedidoCompraProdutos;
+	}
+
+	@OneToMany(mappedBy = "PedidoCompra")
+	private Set<PedidoCompraProduto> PedidoCompraProdutos = new HashSet<>(0);
 }

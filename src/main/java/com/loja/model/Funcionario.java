@@ -7,11 +7,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Funcionario extends EntidadeBase{
-	
-	public Funcionario(long id, String nome, String cpfCnpj, String telefone, String endereco) {
-		super(id, nome, cpfCnpj, telefone, endereco);
-	}
-	
+		
 	@Column(length=1)
 	private String Sexo;
 	

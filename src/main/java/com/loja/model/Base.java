@@ -7,10 +7,6 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class Base {
-	public Base (long id, String nome) {
-		Id = id;
-		Nome = nome;
-	}
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
