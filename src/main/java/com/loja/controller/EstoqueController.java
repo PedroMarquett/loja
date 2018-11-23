@@ -1,4 +1,5 @@
 package com.loja.controller;
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -11,34 +12,34 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.loja.model.Fornecedor;
-import com.loja.repository.FornecedorRepository;
+import com.loja.model.Produto;
+import com.loja.repository.ProdutoRepository;
 
 @Controller
-public class FornecedorController {
+public class EstoqueController {
 	
-	private final String ROOT = "/fornecedor";
+	private final String ROOT = "/estoque";
 	
 	@Autowired
-	FornecedorRepository Repository;
+	ProdutoRepository Repository;
 	
-	@GetMapping("/fornecedor")
+	@GetMapping("/estoque")
 	public ModelAndView findAll() {
-		
-		List<Fornecedor> lista = (List<Fornecedor>)Repository.findAll();
 
-		ModelAndView mv = new ModelAndView("/fornecedor/index");
-		
+		List<Produto> lista = (List<Produto>)Repository.findAll();
+
+		ModelAndView mv = new ModelAndView("/estoque/index");
+
 		mv.addObject("lista", lista);
 
-		return mv;
+	    return mv;
 	}
 	
 	@GetMapping(ROOT + "/add")
 	public ModelAndView add() {
 		
 		ModelAndView mv = new ModelAndView(ROOT + "/add");
-		mv.addObject("fornecedor", new Fornecedor());
+		mv.addObject("produto", new Produto());
 		
 		return mv;
 	}
@@ -46,7 +47,7 @@ public class FornecedorController {
 	@GetMapping(ROOT + "/edit/{id}")
 	public ModelAndView edit(@PathVariable("id") Long id) {
 		ModelAndView mv = new ModelAndView("/postAdd");
-		mv.addObject("cliente", Repository.findById(id));
+		mv.addObject("produto", Repository.findById(id));
 		
 		return mv;
 	}
@@ -60,13 +61,13 @@ public class FornecedorController {
 	}
 
 	@PostMapping(ROOT + "/save")
-	public ModelAndView save(@Valid Fornecedor fornecedor, BindingResult result) {
+	public ModelAndView save(@Valid Produto produto, BindingResult result) {
 		
 		if(result.hasErrors()) {
 			//return add(cliente);
 		}
 		
-		Repository.save(fornecedor);
+		Repository.save(produto);
 		
 		return findAll();
 	}

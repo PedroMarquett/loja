@@ -24,6 +24,7 @@
 		</div>
 		
 		<div class="panel-body">
+		<a class="btn btn-sm btn-success" th:href="@{/cliente/add}" >Novo</a>
 			<div class="table-responsive">
 				<table class="table table-sm table-striped table-hover table-bordered">
 					<thead>
@@ -31,6 +32,8 @@
 							<th>Id</th>
 							<th>Nome</th>
 							<th>Telefone</th>
+							<th>Endereço</th>
+							<th>Sexo</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -39,10 +42,12 @@
 							<td th:text="${item.id}"></td>
 							<td th:text="${item.nome}"></td>
 							<td th:text="${item.telefone}"></td>
+							<td th:text="${item.endereco}"></td>
+							<td th:text="${item.sexo}"></td>
 							<td>
 								<div class="btn-group pull-right">
-							   		<a class="btn btn-sm btn-primary" th:href="@{/edit/{id}(id=${item.id})}" >Editar</a>
-							   		<a class="delete btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${item.id})}">Excluir</a>
+							   		<a class="btn btn-sm btn-primary" th:href="@{/cliente/edit/{id}(id=${item.id})}" >Editar</a>
+							   		<a class="delete btn btn-sm btn-danger" th:href="@{/cliente/delete/{id}(id=${item.id})}">Excluir</a>
 							   </div>
 							</td>
 						</tr>
@@ -50,41 +55,7 @@
 				</table>
 			</div>
 		</div>
-		
-		<table>
-			<tr>
-		   		<td>Nome Cliente:</td>
-		   	</tr>
-		   	<tr>
-		   		<td><input type="text" name="nome" size="100"> <br /></td>
-			</tr>
-		 	<tr>
-		   		<td>CPF cliente:</td>
-		   	</tr>
-		   	<tr>
-		   		<td><input type="int" name="cpfCnpj" size="11"><br /></td>
-			</tr>
-		 	<tr>
-		   		<td>Telefone cliente:</td>
-		   	</tr>
-		   	<tr>
-		   		<td><input type="int" name="Telefone" size="11"><br /></td>
-			</tr>
-		 	<tr>
-		   		<td>EndereÃ§o:</td>
-		   	</tr>
-		   	<tr>
-		   		<td><input type="text" name="endereco" size="100"><br /></td>
-			</tr>			 
-		 	<tr>
-		   		<td>Sexo cliente:</td>
-		   	</tr>
-		   	<tr>	
-		   		<td>Masculino <input type="radio" name="sexo" value"M" >
-		   			Feminino  <input type="radio" name="sexo" value"F" ><br /></td>
-			 </tr>	
-		</table>
 	</div>	
-	<input type="submit" value="Salvar"/>
+	<!--  <input type="submit" value="Salvar"/>-->
 </body>
 </html>
