@@ -45,7 +45,7 @@ import com.loja.repository.FuncionarioRepository;
 		
 		@GetMapping(ROOT + "/edit/{id}")
 		public ModelAndView edit(@PathVariable("id") Long id) {
-			ModelAndView mv = new ModelAndView("/postAdd");
+			ModelAndView mv = new ModelAndView(ROOT + "/add");
 			mv.addObject("funcionario", Repository.findById(id));
 			
 			return mv;

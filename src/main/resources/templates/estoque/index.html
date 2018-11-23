@@ -22,22 +22,34 @@
 			<a class="btn btn-sm btn-success" th:href="@{/pedidoCompra}" >Pedido de Compra</a>
 			<a class="btn btn-sm btn-success" th:href="@{/estoque}" >Estoque</a>
 		</div>
-		<table>
-			<tr>
-		   		<td>Nome do Material:</td>
-		   	</tr>
-		   	<tr>
-		   		<td><input type="text" name="material" size="100"> <br /></td>
-			</tr>
-			<tr>
-		   		<td>Unidades:</td>
-		   	</tr>
-		   	<tr>
-		   		<td><input type="int" name="unidade" size="5"> <br /></td>
-			</tr>
-		</table>
+		<div class="panel-body">
+		<a class="btn btn-sm btn-success" th:href="@{/estoque/add}" >Novo</a>
+			<div class="table-responsive">
+				<table class="table table-sm table-striped table-hover table-bordered">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nome</th>
+							<th>Quantidade</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="item : ${lista}">
+							<td th:text="${item.id}"></td>
+							<td th:text="${item.nome}"></td>
+							<td th:text="${item.quantidade}"></td>
+							<td>
+								<div class="btn-group pull-right">
+							   		<a class="btn btn-sm btn-primary" th:href="@{/estoque/edit/{id}(id=${item.id})}" >Editar</a>
+							   		<a class="delete btn btn-sm btn-danger" th:href="@{/estoque/delete/{id}(id=${item.id})}">Excluir</a>
+							   </div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>	
-	<input type="submit" value="Buscar"/>
-	<input type="submit" value="Salvar"/>
 </body>
 </html>
