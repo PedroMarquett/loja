@@ -45,7 +45,7 @@ public class OrdemCompra {
 	
 	@GetMapping(ROOT + "/edit/{id}")
 	public ModelAndView edit(@PathVariable("id") Long id) {
-		ModelAndView mv = new ModelAndView("/postAdd");
+		ModelAndView mv = new ModelAndView(ROOT + "/add");
 		mv.addObject("ordemVenda", Repository.findById(id));
 		
 		return mv;

@@ -45,8 +45,8 @@ public class FornecedorController {
 	
 	@GetMapping(ROOT + "/edit/{id}")
 	public ModelAndView edit(@PathVariable("id") Long id) {
-		ModelAndView mv = new ModelAndView("/postAdd");
-		mv.addObject("cliente", Repository.findById(id));
+		ModelAndView mv = new ModelAndView(ROOT + "/add");
+		mv.addObject("fornecedor", Repository.findById(id));
 		
 		return mv;
 	}

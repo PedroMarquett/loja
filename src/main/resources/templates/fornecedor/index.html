@@ -22,33 +22,36 @@
 			<a class="btn btn-sm btn-success" th:href="@{/pedidoCompra}" >Pedido de Compra</a>
 			<a class="btn btn-sm btn-success" th:href="@{/estoque}" >Estoque</a>
 		</div>
-		<table>
-			<tr>
-		   		<td>Nome:</td>
-		   	</tr>
-		   	<tr>
-		   		<td><input type="text" name="nome" size="100"> <br /></td>
-			</tr>
-		 	<tr>
-		   		<td>CNPJ:</td>
-		   	</tr>
-		   	<tr>
-		   		<td><input type="int" name="cnpj" size="11"><br /></td>
-			</tr>
-		 	<tr>
-		   		<td>Telefone:</td>
-		   	</tr>
-		   	<tr>
-		   		<td><input type="int" name="Telefone" size="11"><br /></td>
-			</tr>
-		 	<tr>
-		   		<td>Endereço:</td>
-		   	</tr>
-		   	<tr>
-		   		<td><input type="text" name="endereco" size="100"><br /></td>
-			</tr>			 
-		</table>
-	</div>	
-	<input type="submit" value="Salvar"/>	
+		<div class="panel-body">
+		<a class="btn btn-sm btn-success" th:href="@{/fornecedor/add}" >Novo</a>
+			<div class="table-responsive">
+				<table class="table table-sm table-striped table-hover table-bordered">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nome</th>
+							<th>Telefone</th>
+							<th>Endereço</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="item : ${lista}">
+							<td th:text="${item.id}"></td>
+							<td th:text="${item.nome}"></td>
+							<td th:text="${item.telefone}"></td>
+							<td th:text="${item.endereco}"></td>
+							<td>
+								<div class="btn-group pull-right">
+							   		<a class="btn btn-sm btn-primary" th:href="@{/fornecedor/edit/{id}(id=${item.id})}" >Editar</a>
+							   		<a class="delete btn btn-sm btn-danger" th:href="@{/fornecedor/delete/{id}(id=${item.id})}">Excluir</a>
+							   </div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>		
 </body>
 </html>
