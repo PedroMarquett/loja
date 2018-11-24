@@ -1,28 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<title>Inicio</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<head th:include="head :: head (pageTitle='Inicio')">
 </head>
 <body>
 	<div class="panel panel-default">
-		<div class="panel-heading">
-			<strong>Inicio</strong>
-		</div>
-		<div class="panel-footer">
-			<a class="btn btn-sm btn-success" th:href="@{/}" >Inicio</a>
-			<a class="btn btn-sm btn-success" th:href="@{/funcionario}" >Funcionario</a>
-			<a class="btn btn-sm btn-success" th:href="@{/cliente}" >Cliente</a>
-			<a class="btn btn-sm btn-success" th:href="@{/fornecedor}" >Fornecedor</a>
-			<a class="btn btn-sm btn-success" th:href="@{/ordemVenda}" >Ordem de Venda</a>
-			<a class="btn btn-sm btn-success" th:href="@{/pedidoCompra}" >Pedido de Compra</a>
-			<a class="btn btn-sm btn-success" th:href="@{/estoque}" >Estoque</a>
-		</div>
-		<img th:src="@{../images/Index.jpg}" alt="some text" width=60 height=40>
-	</div>	
+		<div th:replace="menu :: menu"></div>
+	</div>		
 </body>
 </html>
