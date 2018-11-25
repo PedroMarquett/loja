@@ -13,7 +13,7 @@ public class OrdemVendaProduto {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long Id;	
 	
-	@ManyToOne    
+	@ManyToOne	
 	private OrdemVenda OrdemVenda;
 	
 	@ManyToOne    

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:include="head :: head (pageTitle='Compra')"></head>
+<body>
+	<div th:include="menu :: menu"></div>
+	
+	<h1 class="text-center">Pedido Compra</h1>
+	
+	<div class="panel-body">
+		<form class="form-horizontal" th:object="${pedidoCompra}" th:action="@{/pedidoCompra/save}" method="POST" style="margin: 10px">
+			<div class="form-group">
+					<fieldset>
+						<div class="form-group row">
+							<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+								<div th:each="detailedError : ${#fields.detailedErrors()}">
+									<span th:text="${detailedError.message}"></span>
+								</div>
+							</div>
+						</div> 					
+						<div class="form-group row">
+						    <div class="col-md-1">
+						        <input type="text" class="form-control input-sm" id="id" th:field="*{id}" readOnly="readonly"/>
+						    </div>
+						 </div>
+						<div class="form-group row">                                                          
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('funcionario.nome')}? 'has-error'">
+							    <label>Funcionario</label>
+							    <select class="form-control input-sm" th:field="*{funcionario.id}" >
+							    <option th:each="item : ${listaFuncionarios}" th:value="${item.id}" th:text="${item.nome}"></option>
+							    </select>						    
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('cliente.id')}? 'has-error'">
+								<label>Cliente</label> 
+								<select class="form-control input-sm" th:field="*{cliente.id}" >
+							    <option th:each="item : ${listaClientes}" th:value="${item.id}" th:text="${item.nome}"></option>
+							    </select>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-2">
+							    <label class="control-label" for="produtoId">Produto</label>
+							    <select class="form-control input-sm" id="produtoId">
+							    	<option th:each="item : ${listaProdutos}" th:value="${item.id}" th:text="${item.nome}"></option>
+							    </select>
+							</div>
+							<div class="col-md-1">
+							    <label class="control-label" for="produtoQtd">Quantidade</label>
+							    <input type="number" class="form-control input-sm" id="produtoQtd"/>
+						    </div>
+						    						    
+						    <a class="btn btn-sm btn-primary" style="margin-top: 27px;" id="adicionar" onclick="pedidoProduto.add(this)">Adicionar</a>
+						</div>
+						<div class="table-responsive">
+							<table class="table table-sm table-striped table-hover table-bordered" id="tabelaProdutos">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Produto</th>
+										<th>Quantidade</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>	
+									<tr th:each="item : ${pedidoCompraProdutos}">
+										<td th:text="${item.produto.id}"></td>
+										<td th:text="${item.produto.nome}"></td>
+										<td th:text="${item.quantidade}"></td>
+										<td><a class="btn btn-danger" onclick="pedidoProduto.del(this)">Deletar</a></td>
+									</tr>								
+								</tbody>
+							</table>
+						</div>
+					</fieldset>
+			</div>
+			<div class="form-group row">
+				<a class="btn btn-sm btn-primary" onclick="pedidoProduto.salvar('PedidoCompraProdutos')">Salvar</a>
+				<a th:href="@{/}" class="btn btn-sm btn-default">Cancelar</a>
+			</div>
+		</form>
+	</div>
+</body>
+<script src="/js/pedidoProduto.js"></script>
+</html>

@@ -1,8 +1,9 @@
 package com.loja.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,24 +27,16 @@ public class OrdemVenda {
 	@JoinColumn(nullable = false, updatable = false)
 	private Fornecedor Fornecedor;
 
-	public Set<OrdemVendaProduto> getOrdemVendaProdutos() {
+	@OneToMany(mappedBy = "OrdemVenda", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<OrdemVendaProduto> OrdemVendaProdutos;
+	
+	public List<OrdemVendaProduto> getOrdemVendaProdutos() {
 		return OrdemVendaProdutos;
 	}
 
-	public void setOrdemVendaProdutos(Set<OrdemVendaProduto> ordemVendaProdutos) {
+	public void setOrdemVendaProdutos(List<OrdemVendaProduto> ordemVendaProdutos) {
 		OrdemVendaProdutos = ordemVendaProdutos;
-	}
-
-	@OneToMany(mappedBy = "OrdemVenda")
-	private Set<OrdemVendaProduto> OrdemVendaProdutos = new HashSet<>(0);
-
-	public Set<OrdemVendaProduto> getOrdemVendaProduto() {
-		return OrdemVendaProdutos;
-	}
-
-	public void setOrdemVendaProduto(Set<OrdemVendaProduto> ordemVendaProduto) {
-		OrdemVendaProdutos = ordemVendaProduto;
-	}
+	}	
 
 	public long getId() {
 		return Id;

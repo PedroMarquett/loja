@@ -1,9 +1,9 @@
 package com.loja.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,6 +25,17 @@ public class PedidoCompra {
 	@JoinColumn(nullable = false, updatable = false)
 	private Cliente Cliente;
 	
+	@OneToMany(mappedBy = "PedidoCompra", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<PedidoCompraProduto> PedidoCompraProdutos;
+	
+	public List<PedidoCompraProduto> getPedidoCompraProdutos() {
+		return PedidoCompraProdutos;
+	}
+
+	public void setPedidoCompraProdutos(List<PedidoCompraProduto> pedidoCompraProdutos) {
+		PedidoCompraProdutos = pedidoCompraProdutos;
+	}
+
 	public long getId() {
 		return Id;
 	}
@@ -48,15 +59,5 @@ public class PedidoCompra {
 	public void setCliente(Cliente cliente) {
 		Cliente = cliente;
 	}
-
-	public Set<PedidoCompraProduto> getPedidoCompraProdutos() {
-		return PedidoCompraProdutos;
-	}
-
-	public void setPedidoCompraProdutos(Set<PedidoCompraProduto> pedidoCompraProdutos) {
-		PedidoCompraProdutos = pedidoCompraProdutos;
-	}
-
-	@OneToMany(mappedBy = "PedidoCompra")
-	private Set<PedidoCompraProduto> PedidoCompraProdutos = new HashSet<>(0);
+	
 }
