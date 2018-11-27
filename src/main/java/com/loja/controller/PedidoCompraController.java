@@ -94,6 +94,7 @@ private final String ROOT = "/pedidoCompra";
 			pc.getPedidoCompraProdutos().forEach(item->{
 				pcpRepository.deleteById(item.getId());
 				});
+			pc.getPedidoCompraProdutos().clear();
 		}
 		if (pedidoCompra.getPedidoCompraProdutos() != null)
 			pedidoCompra.getPedidoCompraProdutos().forEach(item->{
